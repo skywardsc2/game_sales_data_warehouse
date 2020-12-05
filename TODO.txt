@@ -1,9 +1,8 @@
 • Testar Google Cloud SQL
     https://console.cloud.google.com/sql/choose-instance-engine?authuser=3&project=hiding-place-297619
 • Debugar main.py
-    File ".\main.py", line 62, in <module>
-    games_dict = json.loads(games_byte_array)
-        ...
-    json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-• Testar loop de requests e arquivo 'games.csv'
-• Verificar 'games.csv' no Google Sheets, talvez
+    File ".\main.py", line 79, in <module>
+    release_date = datetime.fromtimestamp(release_timestamp)
+    OSError: [Errno 22] Invalid argument
+• Consertar campo franchise do dictionary (tá vindo como um dictionary com id e name)
+• Verificar 'games.csv' no Google Sheets
