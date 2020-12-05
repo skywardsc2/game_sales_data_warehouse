@@ -4,5 +4,4 @@
     File ".\main.py", line 79, in <module>
     release_date = datetime.fromtimestamp(release_timestamp)
     OSError: [Errno 22] Invalid argument
-• Consertar campo franchise do dictionary (tá vindo como um dictionary com id e name)
 • Verificar 'games.csv' no Google Sheets
