@@ -28,10 +28,6 @@ age_rating_value = {
     12: "AO"
 }
 
-# Trunca arquivo de saída
-with open('games.csv', 'w', encoding='utf8', newline='') as csvfile:
-    pass
-
 # Carrega dados do dataset VGS
 vgs_games = []
 with open('input_data/vgsales_unified.csv', 'r') as csvfile:
@@ -125,7 +121,7 @@ for vgs_game in requested_games:
     print(f'{games_count}/{number_of_requested_games}')
     games_count = games_count + 1
 
-with open('games.csv', 'w', encoding='utf8', newline='') as csvfile:
+with open('tables_data/games.csv', 'w', encoding='utf8', newline='') as csvfile:
     writer = csv.DictWriter(csvfile, games[0].keys())
     writer.writeheader()
     writer.writerows(games)
