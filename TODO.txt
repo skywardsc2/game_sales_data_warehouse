@@ -9,3 +9,6 @@
     - Data
     - Regioes
     - ReceitaVendas
+• Atualizar relatório
+    - Tabela de jogos com 'basename'
+    - Data de acesso aos dados
