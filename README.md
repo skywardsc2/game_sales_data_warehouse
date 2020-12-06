@@ -22,3 +22,7 @@ Segundo trabalho da disciplina de Processamento Analítico de Dados do ICMC-USP
 - [games.py](games.py), [developer.py](developer.py) - scripts de geração dos arquivos em "tables_data"
 - [requirements.txt](requirements.txt) - módulos python necessários para executar os scripts (instalar com ```pip install requirements.txt```)
 
+## Observações
+
+É necessário uma conta [Twitch](https://www.twitch.tv) e as variáveis de ambiente TWITCH_ID e TWITCH_SECRET com os valores apropriados para a execução das requisições ao [IGDB](https://api-docs.igdb.com/#about)
+
