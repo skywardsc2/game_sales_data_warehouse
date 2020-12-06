@@ -3,11 +3,11 @@ import requests
 import time
 import csv
 from datetime import datetime
-from .igdb_functions import *
+from igdb_functions import *
 
-# Carrega dados da tabela de Jogos
+# Script de carregamento da tabela de Jogos
 
-# define enums for age rating
+# define enums para traducao do campo age_ratings
 age_rating_category = {
     1: "ESRB",
     2: "PEGI"
@@ -28,32 +28,38 @@ age_rating_value = {
     12: "AO"
 }
 
+# Trunca arquivo de saída
 with open('games.csv', 'w', encoding='utf8', newline='') as csvfile:
     pass
 
+# Carrega dados do dataset VGS
 vgs_games = []
 with open('input_data/vgsales_unified.csv', 'r') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         vgs_games.append(row)
 
+# Para cada jogo do dataset, recupera informações na base do IGDB
+requested_games = vgs_games
+number_of_requested_games = len(requested_games)
 endpoint = 'games'
 wrapper = GetIGDBWrapper()
-games = []
-count = 1
-requested_games = vgs_games
-number_of_games = len(requested_games)
+games = []  # lista de jogos a ser salva no arquivo de saida
+games_count = 1
 for vgs_game in requested_games:
+    # Recupera chave do jogo do dataset
     game_basename = vgs_game['basename']
     game_basename = game_basename.replace('"', '\\"')
-    print(game_basename)
+
+    # Faz requisição ao IGDB do jogo do dataset
     query = f""" fields name,slug,first_release_date,age_ratings.category,age_ratings.rating,franchise.name,game_modes.name;
             where slug = "{game_basename}";"""
     igdb_byte_array = RequestIGDB(wrapper, endpoint, query)
-    games_list = json.loads(igdb_byte_array)
+    games_list = json.loads(igdb_byte_array)    # array com 1 único jogo, se encontrado
 
+    # Formatação e integração das informações do jogo
     game = {}
-    if len(games_list) > 0:
+    if len(games_list) > 0: # se encontrou o jogo na base do IGDB
         igdb_game = games_list[0]
 
         game['Name'] = igdb_game['name']
@@ -116,8 +122,8 @@ for vgs_game in requested_games:
     games.append(game)
     time.sleep(0.25)
 
-    print(f'{count}/{number_of_games}')
-    count = count + 1
+    print(f'{games_count}/{number_of_requested_games}')
+    games_count = games_count + 1
 
 with open('games.csv', 'w', encoding='utf8', newline='') as csvfile:
     writer = csv.DictWriter(csvfile, games[0].keys())

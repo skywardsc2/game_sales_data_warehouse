@@ -4,4 +4,8 @@
     File ".\main.py", line 79, in <module>
     release_date = datetime.fromtimestamp(release_timestamp)
     OSError: [Errno 22] Invalid argument
-• Verificar 'games.csv' no Google Sheets
+• Scripts de povoamento das tabelas
+    - Empresa
+    - Data
+    - Regioes
+    - ReceitaVendas
