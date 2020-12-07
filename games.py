@@ -3,7 +3,7 @@ import requests
 import time
 import csv
 from datetime import datetime
-from igdb_functions import *
+from utility.igdb_functions import *
 
 # Script de carregamento da tabela de Jogos
 
@@ -97,7 +97,7 @@ for vgs_game in requested_games:
             game['Franchise'] = igdb_game['franchise']['name']
         else:
             game['Franchise'] = ''
-    else:
+    else:   # Se nao encontrou o jogo na base do IGDB, utiliza os dados do VGSales
         game['Name'] = vgs_game['Name']
         game['Basename'] = vgs_game['basename']
         

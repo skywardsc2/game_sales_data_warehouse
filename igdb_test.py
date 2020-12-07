@@ -2,7 +2,7 @@ import json
 import time
 import csv
 from datetime import datetime
-from igdb_functions import *
+from utility.igdb_functions import *
 
 # Script de teste para requisicoes ao IGDB
 
@@ -27,38 +27,42 @@ age_rating_value = {
     12: "AO"
 }
 
-endpoint = 'games'
+endpoint = 'platforms'
 offset = 0
 query_limit = 500   # numero de entradas por request (maximo: 500)
-entries_cnt = 0
-number_of_entries = 1   # numero de entradas desejado
-query = f""" fields name,slug,involved_companies.company.name,involved_companies.developer;
-            where id = 1942;
+query = f"""fields name, generation, platform_family.name, versions.platform_version_release_dates.date;
             offset {offset};
             limit {query_limit};"""
-
 wrapper = GetIGDBWrapper()
-games_byte_array = RequestIGDB(wrapper, endpoint, query)
-game_dicts = json.loads(games_byte_array)
-while len(game_dicts) and entries_cnt < number_of_entries:
-    entries = len(game_dicts)
+byte_array = RequestIGDB(wrapper, endpoint, query)
+dicts = json.loads(byte_array)
 
-    offset = offset + entries + 1
-    entries_cnt = entries_cnt + entries
+max_entries_cnt = 1   # numero de entradas desejado
+entries_cnt = 0
+while len(dicts) and entries_cnt < max_entries_cnt:
+    count = len(dicts)
 
+    offset = offset + count + 1
+    entries_cnt = entries_cnt + count
+
+    pretty_dicts = json.dumps(dicts, indent=4)
+    print(pretty_dicts)
     print(entries_cnt)
-    pretty_game_dicts = json.dumps(game_dicts, indent=4)
-    print(pretty_game_dicts)
 
     # calcula quantidade de tuplas faltantes
-    if number_of_entries - entries_cnt > 0 and number_of_entries - entries_cnt < query_limit:
-        query_limit = number_of_entries - entries_cnt
+    if max_entries_cnt - entries_cnt > 0 and max_entries_cnt - entries_cnt < query_limit:
+        query_limit = max_entries_cnt - entries_cnt
     
     # faz novo request
     # delay para não ultrapassar o limite de requests por segundo
     time.sleep(0.25)
-    query = f""" fields name,first_release_date,age_ratings.category,age_ratings.rating,franchise.name,game_modes.name;
+    query = f""" fields name, abbreviation, versions.name;
             offset {offset};
             limit {query_limit};"""
-    games_byte_array = RequestIGDB(wrapper, endpoint, query)
-    game_dicts = json.loads(games_byte_array)
+    byte_array = RequestIGDB(wrapper, endpoint, query)
+    dicts = json.loads(byte_array)
+
+# with open(endpoint + '.csv', 'w') as f:
+#     writer = csv.DictWriter(f, dicts[0].keys())
+#     writer.writeheader()
+#     writer.writerows(dicts)

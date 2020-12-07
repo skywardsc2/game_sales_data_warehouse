@@ -1,3 +1,4 @@
 .env
 __pycache__
 igdb_test.py
+ignore/*
