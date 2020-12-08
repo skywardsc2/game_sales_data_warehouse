@@ -2,3 +2,4 @@
 __pycache__
 igdb_test.py
 ignore/*
+ssl/*
