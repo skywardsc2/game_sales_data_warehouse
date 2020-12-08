@@ -1,6 +1,8 @@
 -- Consultar a quantidade de vendas de jogos para PlayStation 3, por ano, entre os anos de 2010 e 2019.
+
 -- Interessante caso a empresa tenha um bom palpite quanto a viabilidade da produção de jogos para uma plataforma especifica 
 -- (no caso, o PlayStation 3) e deseje confirmar sua hipótese
+
 SELECT
 	platforms.name AS platform, 
 	periods.year, 
@@ -17,6 +19,7 @@ SELECT
 
 
 -- Quais as 5 plataformas com maior quantidade de vendas nos ultimos 5 anos em cada continente do mundo
+
 -- Interessante para descobrir o tamanho do mercado consumidor de cada plataforma em diferentes regioes do mundo,
 -- além de quais plataformas possuem maior popularidade no geral
 
@@ -59,32 +62,32 @@ SELECT
 -- influenciar no tipo de conteudo que a empresa irá apresentar em seu proximo jogo
 
 SELECT 
-	platforms.name as platform,
-	games.age_rating, 	 
-	sum(platform_sales.sales) AS sales
-	FROM
-		games, platforms, platform_sales
-	WHERE
-		platform_sales.game = games.basename
-		AND platform_sales.platform = platforms.abbreviation
-		AND games.age_rating IS NOT NULL
-		AND platforms.name IN (
-				SELECT platforms.name
-					FROM
-						platform_sales, platforms
-					WHERE
-						platform_sales.platform = platforms.abbreviation
-						AND EXTRACT( year FROM platforms.first_release_date )::int > EXTRACT( year FROM CURRENT_DATE )::int - 10
-					GROUP BY
-						platforms.name
-					ORDER BY
-						sum(platform_sales.sales) DESC
-					LIMIT 10
-			)
-	GROUP BY
-		games.age_rating, platforms.name
-	ORDER BY
-		platforms.name, sales DESC;
+    platforms.name as platform,
+    games.age_rating,
+    sum(platform_sales.sales) AS sales
+    FROM
+        games, platforms, platform_sales
+    WHERE
+        platform_sales.game = games.basename
+        AND platform_sales.platform = platforms.abbreviation
+        AND games.age_rating IS NOT NULL
+        AND platforms.name IN (
+                SELECT platforms.name
+                    FROM
+                        platform_sales, platforms
+                    WHERE
+                        platform_sales.platform = platforms.abbreviation
+                        AND EXTRACT( year FROM platforms.first_release_date )::int > EXTRACT( year FROM CURRENT_DATE )::int - 10
+                    GROUP BY
+                        platforms.name
+                    ORDER BY
+                        sum(platform_sales.sales) DESC
+                    LIMIT 10
+            )
+    GROUP BY
+        games.age_rating, platforms.name
+    ORDER BY
+        platforms.name, sales DESC;
 
 
 
