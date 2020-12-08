@@ -1,0 +1,52 @@
+continent,region,country
+America,Northern America,United States
+America,Northern America,Canada
+America,Northern America,Mexico
+America,Central America,Honduras
+America,Central America,Guatemala
+America,Central America,Costa Rica
+America,South America,Brazil
+America,South America,Argentina
+America,South America,Uruguay
+Europe,Northern Europe,Finland
+Europe,Northern Europe,Norway
+Europe,Northern Europe,Sweden
+Europe,Southern Europe,Croatia
+Europe,Southern Europe,Greece
+Europe,Southern Europe,Italy
+Europe,Southern Europe,Portugal
+Europe,Southern Europe,Spain
+Europe,Western Europe,France
+Europe,Western Europe,United Kingdom
+Europe,Western Europe,Netherlands
+Europe,Western Europe,Germany
+Europe,Eastern Europe,Serbia
+Europe,Eastern Europe,Russia
+Europe,Eastern Europe,Romania
+Africa,Northern Africa,Egypt
+Africa,Northern Africa,Libya
+Africa,Western Africa,Ghana
+Africa,Western Africa,Nigeria
+Africa,Middle Africa,Angola
+Africa,Middle Africa,Cameroon
+Africa,Eastern Africa,Ethiopia
+Africa,Eastern Africa,Mozambique
+Africa,Southern Africa,South Africa
+Africa,Southern Africa,Zimbabwe
+Asia,Western Asia,Israel
+Asia,Western Asia,Turkey
+Asia,Western Asia,Iraq
+Asia,Central Asia,Kazakhstan
+Asia,Central Asia,Uzbekistan
+Asia,Central Asia,Turkmenistan
+Asia,Southern Asia,India
+Asia,Southern Asia,Nepal
+Asia,Southern Asia,Pakistan
+Asia,Eastern Asia,China
+Asia,Eastern Asia,Japan
+Asia,Eastern Asia,South Korea
+Asia,Southeastern Asia,Thailand
+Asia,Southeastern Asia,Singapore
+Asia,Southeastern Asia,Indonesia
+Oceania,Australia and New Zeland,Australia
+Oceania,Australia and New Zeland,New Zeland

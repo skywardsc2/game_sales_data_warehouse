@@ -18,7 +18,7 @@ entries_cnt = 1
 number_of_platforms = len(PlatformNameConverter)
 platforms = []  # lista de plataformas a ser salva no arquivo de saida
 for platform_name in PlatformNameConverter.keys():
-    # Faz requisição ao IGDB das informações da plataforma
+    # Faz requisição das informações da plataforma ao IGDB
     query = f"""fields name, generation, platform_family.name, versions.platform_version_release_dates.date;
             where name = "{PlatformNameConverter[platform_name]}";"""
     igdb_byte_array = RequestIGDB(wrapper, endpoint, query)
@@ -29,14 +29,14 @@ for platform_name in PlatformNameConverter.keys():
     if len(platforms_list) > 0: # se encontrou a plataforma na base do IGDB
         igdb_platform = platforms_list[0]
 
-        platform['Name'] = platform_name
-        platform['Abbreviation'] = platform_name
-        platform['First Release Date'] = ''
-        platform['Generation'] = ''
-        platform['Family'] = ''
+        platform['name'] = platform_name
+        platform['abbreviation'] = platform_name
+        platform['first_release_date'] = ''
+        platform['generation'] = ''
+        platform['family'] = ''
 
         if 'name' in igdb_platform:
-            platform['Name'] = igdb_platform['name']
+            platform['name'] = igdb_platform['name']
 
         if 'versions' in igdb_platform:
             version = igdb_platform['versions'][0]
@@ -49,14 +49,14 @@ for platform_name in PlatformNameConverter.keys():
                 version_release_dates.sort()
                 release_timestamp = version_release_dates[0]
                 release_date = datetime.fromtimestamp(release_timestamp)
-                platform['First Release Date'] = release_date.strftime("%d/%m/%Y")
+                platform['first_release_date'] = release_date.strftime("%d/%m/%Y")
         
         if 'generation' in igdb_platform:
-            platform['Generation'] = igdb_platform['generation']
+            platform['generation'] = igdb_platform['generation']
         
         if 'platform_family' in igdb_platform:
             if 'name' in igdb_platform['platform_family']:
-                platform['Family'] = igdb_platform['platform_family']['name']
+                platform['family'] = igdb_platform['platform_family']['name']
     
     platforms.append(platform)
     time.sleep(0.25)

@@ -1,0 +1,52 @@
+continent,region,country,key
+America,Northern America,United States,AmericaNorthernAmericaUnitedStates
+America,Northern America,Canada,AmericaNorthernAmericaCanada
+America,Northern America,Mexico,AmericaNorthernAmericaMexico
+America,Central America,Honduras,AmericaCentralAmericaHonduras
+America,Central America,Guatemala,AmericaCentralAmericaGuatemala
+America,Central America,Costa Rica,AmericaCentralAmericaCostaRica
+America,South America,Brazil,AmericaSouthAmericaBrazil
+America,South America,Argentina,AmericaSouthAmericaArgentina
+America,South America,Uruguay,AmericaSouthAmericaUruguay
+Europe,Northern Europe,Finland,EuropeNorthernEuropeFinland
+Europe,Northern Europe,Norway,EuropeNorthernEuropeNorway
+Europe,Northern Europe,Sweden,EuropeNorthernEuropeSweden
+Europe,Southern Europe,Croatia,EuropeSouthernEuropeCroatia
+Europe,Southern Europe,Greece,EuropeSouthernEuropeGreece
+Europe,Southern Europe,Italy,EuropeSouthernEuropeItaly
+Europe,Southern Europe,Portugal,EuropeSouthernEuropePortugal
+Europe,Southern Europe,Spain,EuropeSouthernEuropeSpain
+Europe,Western Europe,France,EuropeWesternEuropeFrance
+Europe,Western Europe,United Kingdom,EuropeWesternEuropeUnitedKingdom
+Europe,Western Europe,Netherlands,EuropeWesternEuropeNetherlands
+Europe,Western Europe,Germany,EuropeWesternEuropeGermany
+Europe,Eastern Europe,Serbia,EuropeEasternEuropeSerbia
+Europe,Eastern Europe,Russia,EuropeEasternEuropeRussia
+Europe,Eastern Europe,Romania,EuropeEasternEuropeRomania
+Africa,Northern Africa,Egypt,AfricaNorthernAfricaEgypt
+Africa,Northern Africa,Libya,AfricaNorthernAfricaLibya
+Africa,Western Africa,Ghana,AfricaWesternAfricaGhana
+Africa,Western Africa,Nigeria,AfricaWesternAfricaNigeria
+Africa,Middle Africa,Angola,AfricaMiddleAfricaAngola
+Africa,Middle Africa,Cameroon,AfricaMiddleAfricaCameroon
+Africa,Eastern Africa,Ethiopia,AfricaEasternAfricaEthiopia
+Africa,Eastern Africa,Mozambique,AfricaEasternAfricaMozambique
+Africa,Southern Africa,South Africa,AfricaSouthernAfricaSouthAfrica
+Africa,Southern Africa,Zimbabwe,AfricaSouthernAfricaZimbabwe
+Asia,Western Asia,Israel,AsiaWesternAsiaIsrael
+Asia,Western Asia,Turkey,AsiaWesternAsiaTurkey
+Asia,Western Asia,Iraq,AsiaWesternAsiaIraq
+Asia,Central Asia,Kazakhstan,AsiaCentralAsiaKazakhstan
+Asia,Central Asia,Uzbekistan,AsiaCentralAsiaUzbekistan
+Asia,Central Asia,Turkmenistan,AsiaCentralAsiaTurkmenistan
+Asia,Southern Asia,India,AsiaSouthernAsiaIndia
+Asia,Southern Asia,Nepal,AsiaSouthernAsiaNepal
+Asia,Southern Asia,Pakistan,AsiaSouthernAsiaPakistan
+Asia,Eastern Asia,China,AsiaEasternAsiaChina
+Asia,Eastern Asia,Japan,AsiaEasternAsiaJapan
+Asia,Eastern Asia,South Korea,AsiaEasternAsiaSouthKorea
+Asia,Southeastern Asia,Thailand,AsiaSoutheasternAsiaThailand
+Asia,Southeastern Asia,Singapore,AsiaSoutheasternAsiaSingapore
+Asia,Southeastern Asia,Indonesia,AsiaSoutheasternAsiaIndonesia
+Oceania,Australia and New Zeland,Australia,OceaniaAustraliaandNewZelandAustralia
+Oceania,Australia and New Zeland,New Zeland,OceaniaAustraliaandNewZelandNewZeland

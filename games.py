@@ -30,7 +30,7 @@ age_rating_value = {
 
 # Carrega dados do dataset VGS
 vgs_games = []
-with open('input_data/vgsales_unified.csv', 'r') as csvfile:
+with open('input_data/vgsales_unique.csv', 'r') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         vgs_games.append(row)
@@ -58,26 +58,26 @@ for vgs_game in requested_games:
     if len(games_list) > 0: # se encontrou o jogo na base do IGDB
         igdb_game = games_list[0]
 
-        game['Name'] = igdb_game['name']
-        game['Basename'] = vgs_game['basename']
+        game['name'] = igdb_game['name']
+        game['basename'] = vgs_game['basename']
 
         if 'first_release_date' in igdb_game:
             release_timestamp = igdb_game['first_release_date']
             release_date = datetime.fromtimestamp(release_timestamp)
-            game['Release Date'] = release_date.strftime("%d/%m/%Y")
+            game['release_date'] = release_date.strftime("%d/%m/%Y")
         elif 'Year' in vgs_game:
-            game['Release Date'] = f'00/00/' + vgs_game['Year'][0:4]
+            game['release_date'] = f'00/00/' + vgs_game['Year'][0:4]
         else:
-            game['Release Date'] = ''
+            game['release_date'] = ''
         
         if 'age_ratings' in igdb_game:
             age_ratings = igdb_game['age_ratings'][0]
             rating = age_rating_category[age_ratings['category']] + "-" + age_rating_value[age_ratings['rating']]
-            game['Age Rating'] = rating
+            game['age_rating'] = rating
         elif 'ESRB_Rating' in vgs_game:
-            game['Age Rating'] = f'ESRB-' + vgs_game['ESRB_Rating']
+            game['age_rating'] = f'ESRB-' + vgs_game['ESRB_Rating']
         else:
-            game['Age Rating'] = ''
+            game['age_rating'] = ''
         
         single_player = 0
         multi_player = 0
@@ -87,33 +87,33 @@ for vgs_game in requested_games:
                     single_player = 1
                 else:
                     multi_player = 1
-            game['Single Player'] = single_player
-            game['Multi Player'] = multi_player
+            game['single_player'] = single_player
+            game['multi_player'] = multi_player
         else:
-            game['Single Player'] = ''
-            game['Multi Player'] = ''
+            game['single_player'] = ''
+            game['multi_player'] = ''
         
         if 'franchise' in igdb_game:
-            game['Franchise'] = igdb_game['franchise']['name']
+            game['franchise'] = igdb_game['franchise']['name']
         else:
-            game['Franchise'] = ''
+            game['franchise'] = ''
     else:   # Se nao encontrou o jogo na base do IGDB, utiliza os dados do VGSales
-        game['Name'] = vgs_game['Name']
-        game['Basename'] = vgs_game['basename']
+        game['name'] = vgs_game['name']
+        game['basename'] = vgs_game['basename']
         
         if 'Year' in vgs_game:
-            game['Release Date'] = f'00/00/' + vgs_game['Year'][0:4]
+            game['release_date'] = f'00/00/' + vgs_game['Year'][0:4]
         else:
-            game['Release Date'] = ''
+            game['release_date'] = ''
 
         if 'ESRB_Rating' in vgs_game:
-            game['Age Rating'] = f'ESRB-' + vgs_game['ESRB_Rating']
+            game['age_rating'] = 'ESRB-' + vgs_game['ESRB_Rating']
         else:
-            game['Age Rating'] = ''
+            game['age_rating'] = ''
         
-        game['Single Player'] = ''
-        game['Multi Player'] = ''
-        game['Franchise'] = ''
+        game['single_player'] = ''
+        game['multi_player'] = ''
+        game['franchise'] = ''
     
     games.append(game)
     time.sleep(0.25)
