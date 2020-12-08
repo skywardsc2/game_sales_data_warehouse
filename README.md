@@ -19,7 +19,7 @@ Segundo trabalho da disciplina de Processamento Analítico de Dados do ICMC-USP
   - [vgsales.csv](./input_data/vgsales.csv) - dataset original ([link](https://www.kaggle.com/ashaheedq/video-games-sales-2019))
 - [tables_data](./tables_data) - arquivos .csv para povoamento das tabelas
 - [sql](./sql) - arquivos com scripts de criação das tabelas e consultas realizadas
-- [games.py](games.py), [platforms.py](platforms.py) - scripts de geração dos arquivos .csv para povoamento das tabelas
+- [games.py](games.py), [platforms.py](platforms.py), ... - scripts de geração dos arquivos .csv para povoamento das tabelas
 - [requirements.txt](requirements.txt) - módulos python necessários para executar os scripts (instalar com ```pip install requirements.txt```)
   - Módulos:
     - igdb-api-v4
