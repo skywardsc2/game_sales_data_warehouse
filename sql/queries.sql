@@ -4,7 +4,6 @@
 -- (no caso, o PlayStation 3) e deseje confirmar sua hipótese
 
 SELECT
-	platforms.name AS platform, 
 	periods.year, 
 	sum(platform_sales.sales) AS sales
     FROM 
@@ -15,7 +14,9 @@ SELECT
     	AND platforms.name = 'PlayStation 3'
     	AND periods.year BETWEEN 2010 AND 2019
     GROUP BY 
-    	periods.year, platforms.name;
+    	periods.year, platforms.name
+	ORDER BY
+		periods.year;
 
 
 -- Quais as 5 plataformas com maior quantidade de vendas nos ultimos 5 anos em cada continente do mundo
