@@ -17,7 +17,7 @@ Segundo trabalho da disciplina de Processamento Analítico de Dados do ICMC-USP
 
 - [input_data](./input_data/) - contém datasets utilizados
   - [vgsales.csv](./input_data/vgsales.csv) - dataset original ([link](https://www.kaggle.com/ashaheedq/video-games-sales-2019))
-- [query_data](./query_data/) - contém arquivos .csv com resultados das consultas efetuadas
+- [query_data](./query_data/) - contém arquivos e gráficos com resultados das consultas efetuadas
 - [tables_data](./tables_data) - arquivos .csv para povoamento das tabelas
 - [sql](./sql) - arquivos com scripts de criação das tabelas e consultas realizadas
 - [utility](./utility/) - módulos utilitários para requisições ao igdb, transformação dos dados, etc.
